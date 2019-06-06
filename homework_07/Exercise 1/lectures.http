@@ -1,0 +1,17 @@
+GET  http://localhost:3000/api/lectures/ HTTP/1.1
+#################  BAD Invalid Id
+GET  http://localhost:3000/api/lectures/5cf88eb7d21b8e36e031f33 HTTP/1.1
+#################  
+GET  http://localhost:3000/api/lectures/5cf88eb7d21b8e36e031f331 HTTP/1.1
+#################
+POST http://localhost:3000/api/lectures/ HTTP/1.1
+content-type: application/json
+
+{
+    "course" : "CS572",
+    "lecture": "MongoDB"
+}
+#################
+DELETE  http://localhost:3000/api/lectures/5cf89f56e43d07222c278f7b HTTP/1.1
+#################
+GET http://localhost:3000/api/lectures/search/MongoDB HTTP/1.1

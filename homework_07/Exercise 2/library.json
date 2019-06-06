@@ -1,0 +1,65 @@
+// books collection
+{
+    "books": [
+        {
+            "ISBN": "9781593275846",
+            "title": "book title 1",
+            "pages": 472,
+            "published": "2019-06-01T00:00:00.000Z",
+            "taggedBy": "taggedBy author 1",
+            "author": {
+                "name": "authour 1",
+                "email": "author@yahoo.com"
+            },
+            "borrowBy":[
+                { 
+                    "student": {
+                        "name":"student 1",
+                        "email":"student1@gmail.com",
+                        "checkInDate": "2019-06-15T00:00:00.000Z",
+                        "returnDate": "2019-07-01T00:00:00.000Z"
+                    } 
+                },
+                {
+                    "student": {
+                        "name":"student 2",
+                        "email":"student2@gmail.com",
+                        "checkInDate": "2019-06-20T00:00:00.000Z",
+                        "returnDate": "2019-07-01T00:00:00.000Z"
+                    } 
+                }
+            ]
+        }    
+    ]
+}
+
+
+// students collection
+{
+    "students": [
+        {
+            "name":"student 1",
+            "email":"student1@gmail.com",
+            "borrowedBooks":[
+                { 
+                    "book": {
+                        "ISBN": "9781593275846",
+                        "title": "book title 1",
+                        "availableDays": 5,
+                        "checkInDate": "2019-06-20T00:00:00.000Z",
+                        "returnDate": "2019-07-01T00:00:00.000Z"
+                    } 
+                },
+                {
+                    "book": {
+                        "ISBN": "9781593275846",
+                        "title": "book title 1",
+                        "availableDays": 3,
+                        "checkInDate": "2019-06-20T00:00:00.000Z",
+                        "returnDate": "2019-07-01T00:00:00.000Z"
+                    } 
+                }
+            ]
+        }    
+    ]
+}

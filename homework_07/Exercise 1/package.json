@@ -1,0 +1,17 @@
+{
+  "name": "homework_07",
+  "version": "1.0.0",
+  "description": "CRUD using MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shika",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "nodemon": "^1.19.1"
+  }
+}
