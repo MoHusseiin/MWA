@@ -22,7 +22,10 @@ export class CounterComponent implements OnInit {
   }
  
   ngOnInit() {
-    this._countValue = this.parentValue;
+    if(this.parentValue)
+      this._countValue = this.parentValue;
+    else
+      this._countValue = 0;
     this.componentCounterValue.emit(this._countValue);
   }
 
