@@ -7,7 +7,7 @@ import { Customer } from './Customer';
   <p>customers:</p>
       <ul>
         <li *ngFor="let customer of smarts">
-          {{ customer }}
+          {{ customer | multiPipe }}
         </li>
       </ul>
   `,

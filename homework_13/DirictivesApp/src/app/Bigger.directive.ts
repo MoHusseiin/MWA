@@ -16,8 +16,6 @@ export class BiggerDirective implements OnInit{
         this.renderer2 = r;
     }
 
-    // @HostBinding('style.font-size.px') myFontSize: number;
-
     @HostListener('dblclick') onDblClick(){
         this.myFontSize = +this.myFontSize + 2;
         console.log("myFontSize => "+this.myFontSize);
@@ -25,7 +23,6 @@ export class BiggerDirective implements OnInit{
     }
 
     ngOnInit(): void {
-        console.log("defaultSize => "+ this.defaultSize);
         this.myFontSize = this.defaultSize;
     }
 }

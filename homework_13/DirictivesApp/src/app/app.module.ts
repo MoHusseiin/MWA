@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { DumpComponent } from './dump.component';
 import { VisiblityDirective } from './visiblity.directive';
 import { BiggerDirective } from './Bigger.directive';
+import { MultiPipePipe } from './multi-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DumpComponent,
     VisiblityDirective,
-    BiggerDirective
+    BiggerDirective,
+    MultiPipePipe
   ],
   imports: [
     BrowserModule,
