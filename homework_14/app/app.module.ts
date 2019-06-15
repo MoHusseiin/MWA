@@ -6,20 +6,20 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { DataService } from './data.service';
+import { ErrorComponent } from './error/error.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
-    // ,
-    // HomeComponent
+    AppComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-        // {path:'', component: HomeComponent},
-        {path:'users', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)}
+        {path:'users', loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),},
+        {path: 'error', component: ErrorComponent}
     ])  
   ],
   providers: [DataService],

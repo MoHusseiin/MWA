@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LazyCustomerComponent } from './lazy-customer.component';
 import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from '../user-details/user-details.component';
+import { CheckuserIdGuardGuard } from '../guards/checkuser-id-guard.guard';
 
 @NgModule({
   declarations: [LazyCustomerComponent, UserDetailsComponent],
@@ -11,10 +12,9 @@ import { UserDetailsComponent } from '../user-details/user-details.component';
     RouterModule.forChild([
       { path: '', component: LazyCustomerComponent,
         children:[
-          {path:':uuid', component: UserDetailsComponent}
+          {path:':uuid', component: UserDetailsComponent, canActivate:[CheckuserIdGuardGuard]}
         ] 
       }
-    
     ])
   ],
   providers: [],

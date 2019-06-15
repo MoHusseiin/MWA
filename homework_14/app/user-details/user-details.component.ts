@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -18,7 +18,8 @@ export class UserDetailsComponent implements OnInit {
   private userId:string;
   myRout: ActivatedRoute;
   subscription: Subscription;
-  constructor(private dataService: DataService, private route: ActivatedRoute){
+  
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router){
     this.myRout = route;
   } 
 
@@ -30,16 +31,15 @@ export class UserDetailsComponent implements OnInit {
     );
   }
 
-  async getData(){
-    try {
-      this.users$ = this.dataService.getCashedData();
-      const users = await this.users$.toPromise();
-      const jsonObj = JSON.parse(JSON.stringify(users));
-      this.user = jsonObj.find(u => u.login.uuid === this.userId);
-      this.users$.subscribe().subscribe();
-    } catch (error) {
-      console.log(error);
-    }
-    
+  async getData() {
+      try {
+          this.users$ = this.dataService.getCashedData();
+          const users = await this.users$.toPromise();
+          const jsonObj = JSON.parse(JSON.stringify(users));
+          this.user = jsonObj.find(u => u.login.uuid === this.userId);
+          this.users$.subscribe().unsubscribe();
+      } catch (error) {
+          console.log(error);
+      }
   }
 }

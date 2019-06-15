@@ -8,7 +8,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
   
-  private users$: Observable<Object>
+  isUserExist(id: string): boolean {
+    try {
+      console.log("sxs  "+id);
+      let exist = false;
+      this.getCashedData().subscribe((data) => {
+        const user = data.find(u => u.login.uuid === id);
+        console.log("user=  "+user);
+        if(user) {
+          exist = true;
+        }
+      });
+      return exist;
+    } catch (error) {
+      console.log("error "+error);
+      return false;
+    }
+  }
 
   constructor(private httpClient: HttpClient) { }
 
